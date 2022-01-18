@@ -15,6 +15,7 @@ function App() {
       window.addEventListener("scroll", myScroll);
     };
     whereIsMouse();
+    console.log(scrollY);
     return window.removeEventListener("scroll", myScroll);
     //오우..  리턴이었네..
   });
@@ -27,10 +28,18 @@ function App() {
   const Picture3 = () => <img src={widePic} width="280px" height="200px" />;
   //const Picture2 = new Picture(secondPic);
 */
+
+  let positionValue = (1000 / 2 - scrollY) / 1000;
+
   function Picture(props) {
     return (
       <div style={style}>
-        <img src={props.picnum} width="390px" height="780px" />
+        <img
+          style={{ opacity: props.positionValue }}
+          src={props.picnum}
+          width="390px"
+          height="780px"
+        />
       </div>
     );
   }
@@ -39,8 +48,8 @@ function App() {
     <>
       <div style={style}> </div>
       <div style={{ position: "fixed", top: "200px" }}>{scrollY}</div>
-      <Picture picnum={firstPic} />
-      <Picture picnum={secondPic} />
+      <Picture picnum={firstPic} positionValue={positionValue} />
+      <Picture picnum={secondPic} positionValue={-positionValue} />
       <Picture picnum={widePic} />
     </>
   );
