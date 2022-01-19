@@ -1,0 +1,17 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 10vh;
+  background-color: cornsilk;
+}
+
+.popup_inner {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px;
+  width: 100%;
+}
